@@ -13,7 +13,6 @@ RUN bash -c "echo deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart di
 RUN apt-get update
 RUN apt-get -y install mongodb-10gen
 
-EXPOSE 22
 EXPOSE 27017
 
 CMD ["/bin/bash"]
