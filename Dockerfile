@@ -5,13 +5,13 @@
 FROM      ubuntu
 MAINTAINER Jeffery Utter "jeff@jeffutter.com"
 
-RUN dpkg-divert --local --rename --add /sbin/initctl
-RUN ln -s /bin/true /sbin/initctl
+ENV LC_ALL C
+ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
-RUN bash -c "echo deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen > /etc/apt/sources.list.d/10gen.list"
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10 && \
+    bash -c "echo deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen > /etc/apt/sources.list.d/10gen.list"
 RUN apt-get update
-RUN LC_ALL=C DEBIAN_FRONTEND=noninteractive apt-get -y install mongodb-10gen
+RUN apt-get -y install mongodb-org
 RUN mkdir -p /data/db
 
 EXPOSE 27017
