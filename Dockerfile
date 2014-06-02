@@ -16,6 +16,4 @@ RUN mkdir -p /data/db
 
 EXPOSE 27017
 
-#CMD ["/bin/bash"]
-
 CMD ["/usr/bin/mongod"]
