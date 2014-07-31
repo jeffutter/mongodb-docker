@@ -2,7 +2,7 @@
 #
 # VERSION               0.0.1
 
-FROM      ubuntu
+FROM      ubuntu:14.04
 MAINTAINER Jeffery Utter "jeff@jeffutter.com"
 
 ENV LC_ALL C
